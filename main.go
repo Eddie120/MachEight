@@ -24,7 +24,7 @@ func sum(nums []int, target int) []string { // BigO = n
 		// this is used to track used values in the hash table
 		// disable the same key in inverse way
 		key, inverseKey := createKeys(complement, num)
-		if table[complement] && !hasUsed[key] {
+		if table[complement] && !hasUsed[key] && complement != num {
 			hasUsed[key] = true
 			hasUsed[inverseKey] = true
 			output = append(output, fmt.Sprintf("%d,%d", complement, num))
@@ -37,5 +37,5 @@ func sum(nums []int, target int) []string { // BigO = n
 func main() {
 	fmt.Println(sum([]int{1, 0, 5, 20, -4, 12, 16, 7}, 12))
 	fmt.Println(sum([]int{1, 0, 5, 20, -4, 12, 16, 7}, 0))
-	fmt.Println(sum([]int{1, 0, 5, 20, -4, 12, 16, 7}, 99))
+	fmt.Println(sum([]int{1, 0, 5, 20, -4, 12, 99, 7}, 99))
 }
